@@ -94,7 +94,7 @@ export default function Testimonios() {
     if (guardadosLocal.length === 0) return;
     setEstadoSync('Sincronizando... ⏳');
     try {
-      await axios.post('http://localhost:8080/api/testimonios/sync', guardadosLocal);
+      await axios.post('https://backend-sudafrica.onrender.com/api/testimonios/sync', guardadosLocal);
       setGuardadosLocal([]);
       localStorage.removeItem('testimoniosLocales');
       setEstadoSync('¡Sincronización exitosa! ☁️✅');
