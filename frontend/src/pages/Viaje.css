@@ -1,0 +1,161 @@
+.viaje-container {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0 0 0;
+  background: transparent;
+  height: calc(100vh - 70px); 
+  position: relative;
+  z-index: 1;
+}
+
+.viaje-header {
+  margin-bottom: 20px;
+  padding: 0 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.viaje-header h1 {
+  color: #c06c33;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.subtitulo-viaje {
+  color: #8c8c8c;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  padding: 0 10px;
+}
+
+.contador-dias {
+  display: inline-block;
+  background: #fdf6f0;
+  color: #c06c33;
+  font-size: 14px;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* Contenedor del scroll horizontal */
+.timeline-horizontal {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  flex-grow: 1; 
+  padding: 0 20px 20px 20px; 
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
+  scroll-snap-type: x mandatory;
+}
+
+.timeline-horizontal::-webkit-scrollbar {
+  display: none;
+}
+
+/* Espaciadores para el centrado horizontal */
+.espaciador-inicial, .espaciador-final {
+  flex: 0 0 calc(50vw - (85vw / 2) - 10px);
+}
+
+.tarjeta-dia {
+  flex: 0 0 85vw;
+  max-width: 360px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  scroll-snap-align: center;
+  height: 100%; 
+}
+
+.tarjeta-numero {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #c06c33;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 12px;
+  text-transform: uppercase;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.tarjeta-contenido {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.tarjeta-imagen {
+  flex-grow: 1; 
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.tarjeta-video {
+  width: 100%;
+  flex-grow: 1;
+  object-fit: cover;
+  border-bottom: 1px solid #f0f0f0;
+  display: block;
+  background: #000;
+}
+
+.tarjeta-texto {
+  padding: 20px;
+  flex-shrink: 0;
+  background: white;
+}
+
+.tarjeta-texto h3 {
+  font-size: 14px;
+  color: #8c8c8c;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tarjeta-texto p {
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+.tarjeta-secreta {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #f9f9f9, #f0f0f0);
+}
+
+.tarjeta-secreta p {
+  margin-top: 15px;
+  color: #888;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.tarjeta-dia.bloqueada {
+  opacity: 0.7;
+}

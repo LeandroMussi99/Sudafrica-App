@@ -1,0 +1,472 @@
+.testimonios-container {
+  padding: 30px 20px;
+  background: transparent; 
+  min-height: 100vh;
+  color: #4a4a4a;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonios-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.testimonios-header h1 {
+  color: #c06c33;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 5px;
+}
+
+.testimonios-header p {
+  color: #8c8c8c;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.formulario-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+  margin-bottom: 20px;
+}
+
+.fila-selectores {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.selector-grupo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #fdfdfd;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 0 10px;
+}
+
+.icono-input {
+  color: #c06c33;
+  margin-right: 5px;
+}
+
+.selector-grupo select {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 12px 0;
+  font-size: 14px;
+  color: #555;
+  outline: none;
+  font-weight: 500;
+}
+
+textarea {
+  width: 100%;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 15px;
+  font-size: 15px;
+  font-family: inherit;
+  color: #333;
+  min-height: 120px;
+  resize: vertical;
+  outline: none;
+  margin-bottom: 15px;
+  background: #fdfdfd;
+  transition: border-color 0.2s;
+}
+
+textarea:focus {
+  border-color: #c06c33;
+}
+
+.btn-guardar {
+  width: 100%;
+  background: #c06c33;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(192, 108, 51, 0.2);
+}
+
+.btn-guardar:active {
+  transform: scale(0.98);
+}
+
+/* Mensaje de feedback */
+.mensaje-estado {
+  text-align: center;
+  background: #e6f4ea;
+  color: #1e8e3e;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Lista para sincronizar */
+.seccion-sincronizacion {
+  margin-top: 30px;
+}
+
+.sincronizacion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.sincronizacion-header h3 {
+  font-size: 15px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-sync {
+  background: #6b705c;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.btn-sync.disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+}
+
+.nota-local {
+  background: white;
+  border-left: 4px solid #c06c33;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.nota-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  align-items: center;
+}
+
+.nota-autora {
+  font-size: 12px;
+  font-weight: 600;
+  color: #888;
+}
+
+.badge {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.badge.testimonio { background: #e3f2fd; color: #1976d2; }
+.badge.oración { background: #fce4ec; color: #c2185b; }
+.badge.historia { background: #fff3e0; color: #e65100; }
+
+.nota-local p {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.nota-fecha {
+  font-size: 11px;
+  color: #aaa;
+}
+
+.lista-vacia {
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+  font-style: italic;
+  padding: 20px;
+}
+
+.btn-ir-historial {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #c06c33;
+  border: 1px solid #c06c33;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 15px;
+  box-shadow: 0 4px 10px rgba(192, 108, 51, 0.1);
+}
+
+/* DISEÑO DEL DROPDOWN PERSONALIZADO */
+.fila-selectores-modernos {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 12px;
+}
+
+.dropdown-pro {
+  position: relative;
+  flex: 1;
+  user-select: none;
+}
+
+.dropdown-pro-header {
+  display: flex;
+  align-items: center;
+  background: #fdfdfd;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 12px 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+  color: #555;
+  font-weight: 500;
+}
+
+.dropdown-pro-header:hover {
+  border-color: #c06c33;
+}
+
+.icono-input {
+  color: #c06c33;
+  margin-right: 8px;
+}
+
+.icono-flecha {
+  color: #8c8c8c;
+  margin-left: auto;
+  transition: transform 0.2s;
+}
+
+/* El menú flotante con las opciones */
+.dropdown-pro-lista {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  margin-top: 5px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  z-index: 100;
+  overflow: hidden;
+  animation: fadeIn 0.2s ease;
+}
+
+.dropdown-pro-item {
+  padding: 12px 15px;
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.dropdown-pro-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-pro-item:hover {
+  background: #fdf6f0;
+}
+
+.dropdown-pro-item.seleccionado {
+  background: #c06c33;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Estilos de panel del historial */
+.panel-filtros {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  margin-bottom: 25px;
+}
+
+.titulo-filtros {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #c06c33;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.fila-selectores, .selector-grupo {
+  display: none; 
+}
+
+/* DISEÑO DE LOS BOTONES EDITAR Y BORRAR */
+.nota-acciones {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-icono {
+  background: none;
+  border: none;
+  padding: 6px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.btn-icono.editar {
+  color: #6b705c;
+  background: #f0f1ec;
+}
+
+.btn-icono.editar:active {
+  background: #e1e3da;
+  transform: scale(0.95);
+}
+
+.btn-icono.borrar {
+  color: #c2185b; 
+  background: #fce4ec;
+}
+
+.btn-icono.borrar:active {
+  background: #f8bbd0;
+  transform: scale(0.95);
+}
+
+/* DISEÑO DEL MODAL PERSONALIZADO (ALERTA DE BORRADO) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 25px;
+  width: 85%;
+  max-width: 320px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease;
+}
+
+.modal-icono {
+  background: #fce4ec;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px auto;
+}
+
+.modal-card h3 {
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.modal-card p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.modal-botones {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-modal-cancelar {
+  flex: 1;
+  background: #f5f5f5;
+  color: #555;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-modal-cancelar:active {
+  background: #e0e0e0;
+}
+
+.btn-modal-borrar {
+  flex: 1;
+  background: #c2185b;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(194, 24, 91, 0.2);
+  transition: transform 0.1s;
+}
+
+.btn-modal-borrar:active {
+  transform: scale(0.96);
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

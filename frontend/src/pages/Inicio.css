@@ -1,0 +1,227 @@
+.inicio-container {
+  padding: 30px 20px;
+  background: transparent; 
+  min-height: 100vh;
+  color: #4a4a4a;
+  position: relative;
+  z-index: 1; 
+}
+
+.inicio-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.inicio-header h1 {
+  color: #c06c33;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.inicio-header p {
+  color: #8c8c8c;
+  font-size: 15px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Diseño de la Nube (Glassmorphism / Soft UI) */
+.nube-container {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 25px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(192, 108, 51, 0.1);
+  margin-bottom: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nube-container:active {
+  transform: scale(0.98);
+}
+
+.nube-cerrada .nube-prompt {
+  color: #c06c33;
+  font-weight: 600;
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.nube-abierta {
+  animation: fadeIn 0.5s ease;
+}
+
+.versiculo-texto {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #333;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.versiculo-cita {
+  font-size: 14px;
+  color: #c06c33;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.glosario-moderno {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.idioma-bloque h3 {
+  color: #c06c33;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  opacity: 0.8;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+.item span {
+  color: #777;
+}
+
+.item strong {
+  color: #333;
+  font-weight: 600;
+}
+
+.separador {
+  height: 1px;
+  background: #f0f0f0;
+  margin: 20px 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card-glosario {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+  margin-top: 25px;
+}
+
+.glosario-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.glosario-header h3 {
+  color: #4a4a4a;
+  font-size: 16px;
+  margin: 0;
+}
+
+.idioma-tag {
+  background: #fdf6f0;
+  color: #c06c33;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.glosario-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #f5f5f5;
+  border: none;
+  padding: 10px 5px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #888;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tab-btn.active {
+  background: #c06c33;
+  color: white;
+  box-shadow: 0 4px 10px rgba(192, 108, 51, 0.2);
+}
+
+.glosario-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.glosario-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.glosario-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.frase-esp {
+  font-size: 14px;
+  color: #666;
+  width: 45%;
+}
+
+.frase-loc-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 55%;
+}
+
+.frase-loc {
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+  text-align: right;
+}
+
+.frase-pron {
+  font-size: 12px;
+  color: #c06c33;
+  font-style: italic;
+  margin-top: 2px;
+  text-align: right;
+}
