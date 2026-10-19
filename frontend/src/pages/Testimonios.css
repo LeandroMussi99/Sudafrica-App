@@ -470,3 +470,17 @@ textarea:focus {
   from { transform: translateY(20px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
+
+.mensaje-sync {
+  margin-top: 15px;
+  margin-bottom: 20px;
+  padding: 12px;
+  background-color: #fdf8f5; 
+  border: 1px solid #eaddd7;
+  border-radius: 8px;
+  color: #5c4d47;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); 
+}

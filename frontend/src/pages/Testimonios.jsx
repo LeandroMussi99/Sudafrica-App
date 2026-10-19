@@ -37,6 +37,7 @@ export default function Testimonios() {
   const [guardadosLocal, setGuardadosLocal] = useState([]);
   const [estadoSync, setEstadoSync] = useState('');
   const [testimonioABorrar, setTestimonioABorrar] = useState(null);
+  const [isSyncing, setIsSyncing] = useState(false);
 
   useEffect(() => {
     const notasGuardadas = JSON.parse(localStorage.getItem('testimoniosLocales')) || [];
@@ -91,15 +92,20 @@ export default function Testimonios() {
   };
 
   const sincronizarNube = async () => {
-    if (guardadosLocal.length === 0) return;
-    setEstadoSync('Sincronizando... ⏳');
+    if (guardadosLocal.length === 0 || isSyncing) return; 
+
+    setIsSyncing(true);
+    setEstadoSync('Sincronizando... (Esto puede tardar unos minutos)');
+    
     try {
       await axios.post('https://backend-sudafrica.onrender.com/api/testimonios/sync', guardadosLocal);
       setGuardadosLocal([]);
       localStorage.removeItem('testimoniosLocales');
-      setEstadoSync('¡Sincronización exitosa! ☁️✅');
+      setEstadoSync('¡Sincronización exitosa!');
     } catch (error) {
       setEstadoSync('Error de conexión. Intenten más tarde.');
+    } finally {
+      setIsSyncing(false); 
     }
     setTimeout(() => setEstadoSync(''), 4000);
   };
@@ -141,14 +147,23 @@ export default function Testimonios() {
       <div className="seccion-sincronizacion">
         <div className="sincronizacion-header">
           <h3>Por subir a la nube ({guardadosLocal.length})</h3>
+          
+          {/* ACÁ ACTUALIZAMOS EL BOTÓN */}
           <button 
-            className={`btn-sync ${guardadosLocal.length === 0 ? 'disabled' : ''}`}
+            className={`btn-sync ${guardadosLocal.length === 0 || isSyncing ? 'disabled' : ''}`}
             onClick={sincronizarNube}
-            disabled={guardadosLocal.length === 0}
+            disabled={guardadosLocal.length === 0 || isSyncing}
           >
-            <CloudUpload size={18} /> Sincronizar
+            <CloudUpload size={18} /> 
+            {isSyncing ? 'Enviando...' : 'Sincronizar'}
           </button>
         </div>
+
+        {estadoSync && (
+          <div className="mensaje-sync">
+            {estadoSync}
+          </div>
+        )}
 
         <div className="lista-locales">
           {guardadosLocal.map((item, index) => (
