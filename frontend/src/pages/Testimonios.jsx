@@ -55,7 +55,7 @@ export default function Testimonios() {
     setGuardadosLocal(nuevosGuardados);
     localStorage.setItem('testimoniosLocales', JSON.stringify(nuevosGuardados));
     setContenido('');
-    setEstadoSync('¡Guardado en el celular! 📱');
+    setEstadoSync('¡Guardado!');
     setTimeout(() => setEstadoSync(''), 3000);
   };
 

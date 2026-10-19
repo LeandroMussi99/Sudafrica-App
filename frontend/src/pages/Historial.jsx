@@ -46,7 +46,7 @@ export default function Historial() {
     }
 
     // 2. Intentamos conectarnos a tu base de datos para traer lo más nuevo
-    axios.get('http://localhost:8080/api/testimonios')
+    axios.get('https://backend-sudafrica.onrender.com/api/testimonios')
       .then(response => {
         const datosNuevos = response.data.reverse();
         setTestimonios(datosNuevos); 
