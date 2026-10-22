@@ -104,24 +104,30 @@
 
 .tarjeta-imagen {
   flex-grow: 1; 
-  background-size: cover;
+  background-size: contain; 
   background-position: center;
+  background-repeat: no-repeat;
+  background-color: #f0f0f0;
   border-bottom: 1px solid #f0f0f0;
 }
 
 .tarjeta-video {
   width: 100%;
   flex-grow: 1;
-  object-fit: cover;
+  flex-shrink: 1;
+  min-height: 0;
+  object-fit: contain; 
   border-bottom: 1px solid #f0f0f0;
   display: block;
-  background: #000;
+  background: #ffffff; 
 }
 
 .tarjeta-texto {
   padding: 20px;
   flex-shrink: 0;
   background: white;
+  max-height: 140px;
+  overflow-y: auto;
 }
 
 .tarjeta-texto h3 {

@@ -4,6 +4,8 @@ import './Viaje.css';
 
 export default function Viaje() {
   const [diaActualViaje, setDiaActualViaje] = useState(0);
+  const [mediaAmpliada, setMediaAmpliada] = useState(null); 
+  
   const fechaInicioViaje = new Date("2026-10-22T00:00:00").getTime();
 
   useEffect(() => {
@@ -22,16 +24,16 @@ export default function Viaje() {
   }, []);
 
   const diasViaje = [
-    { dia: 1, autor: "Bondiolas", mensaje: "¡Llegaron! Que este primer día sea una locura hermosa. Las amo.", archivo: "sorpresas/foto1.jpg", tipo: "imagen" },
-    { dia: 2, autor: "Ro", mensaje: "Cuidense mucho y disfruten cada sonrisa de esos nenes.", archivo: "sorpresas/foto2.jpg", tipo: "imagen" },
-    { dia: 3, autor: "Agus y Eze", mensaje: "Ya las extraño, pero sé que están haciendo algo increíble. ¡Fuerza hoy!", archivo: "sorpresas/foto3.jpg", tipo: "imagen" },
-    { dia: 4, autor: "Mia", mensaje: "¡Acá estamos haciendo el aguante! Rompanla toda.", archivo: "sorpresas/video4.mp4", tipo: "video" },
-    { dia: 5, autor: "Sofi y Emma", mensaje: "Mitad de viaje. Tómense un segundo para respirar y mirar el atardecer.", archivo: "sorpresas/foto5.jpg", tipo: "imagen" },
-    { dia: 6, autor: "Magui y Diame", mensaje: "No importa si están cansadas, miren lo que lograron hasta ahora.", archivo: "sorpresas/foto6.jpg", tipo: "imagen" },
-    { dia: 7, autor: "Santis", mensaje: "Un abrazo gigante desde casa. Estamos muy orgullosos.", archivo: "sorpresas/foto7.jpg", tipo: "imagen" },
-    { dia: 8, autor: "Gabi y Dami", mensaje: "Ya casi vuelven, guarden todas las historias para contarnos.", archivo: "sorpresas/video8.mp4", tipo: "video" },
-    { dia: 9, autor: "Vivi y Jorge", mensaje: "Últimos días, dejen todo en la cancha que acá las esperamos con mates.", archivo: "sorpresas/foto9.jpg", tipo: "imagen" },
-    { dia: 10, autor: "Bondiolas", mensaje: "¡Misión cumplida! Buen viaje de vuelta, prepárense para los abrazos.", archivo: "sorpresas/foto10.jpg", tipo: "imagen" }
+    { dia: 1, autor: "Mia", mensaje: "¡Espero que hayan disfrutado el viaje de ida! No tengo dudas que Su luz ya está resplandeciendo. Las amo! Disfruten esta travesía con el señor y cuéntenos con lujo de detalles cada testimonio✨", archivo: "sorpresas/foto1.webp", tipo: "imagen" },
+    { dia: 2, autor: "Lean", mensaje: "Espero que no esten viendo este video, por ahi necesitan actualizarlo conectense a internet para que se cargue el verdadero.", archivo: "sorpresas/video2.mp4", tipo: "video" },
+    { dia: 3, autor: "Lean", mensaje: "Otra vez yo probablemente no se cargo la sorpresa conectense a internet y recargueen. ¡Fuerza hoy!", archivo: "sorpresas/foto3.webp", tipo: "imagen" },
+    { dia: 4, autor: "Lean", mensaje: "Hola mi nombre es Lean me conoceran como en videos de hoy no se cargo la sorpresa", archivo: "sorpresas/video4.mp4", tipo: "video" },
+    { dia: 5, autor: "Lean", mensaje: "Dia 5 no hay señales de la sorpresa soy otra vez yo, estas imagenes nunca debieron salir a la luz", archivo: "sorpresas/foto5.webp", tipo: "imagen" },
+    { dia: 6, autor: "Lean", mensaje: "Creo que en el video le erre al dia nose ya me canse de grabar espero que esten cargadas las sorpresas reales adiooos.", archivo: "sorpresas/video6.mp4", tipo: "video" },
+    { dia: 7, autor: "Lean", mensaje: "Adicto a la tiiiiiiintaaaaaaaa.", archivo: "sorpresas/foto7.webp", tipo: "imagen" },
+    { dia: 8, autor: "Lean", mensaje: "Bueno estas ultimas son fotos de cosas que le gustan a ustedes, para Mili foto de un bebe tierno, la que sigue es para Cami", archivo: "sorpresas/foto8.webp", tipo: "imagen" },
+    { dia: 9, autor: "Lean", mensaje: "Esta es para Cami, BTS en Argentinaaaaaaaaaa.", archivo: "sorpresas/foto9.webp", tipo: "imagen" },
+    { dia: 10,autor: "Lean", mensaje: "Y algo que le guste a las dos Jesus.", archivo: "sorpresas/foto10.webp", tipo: "imagen" }
   ];
 
   return (
@@ -56,11 +58,21 @@ export default function Viaje() {
               {estaDesbloqueado ? (
                 <div className="tarjeta-contenido">
                   {item.tipo === 'video' ? (
-                    <video className="tarjeta-video" controls playsInline>
+                    <video 
+                      className="tarjeta-video" 
+                      controls 
+                      playsInline
+                      onClick={() => setMediaAmpliada(item)}
+                      style={{ cursor: 'zoom-in' }}
+                    >
                       <source src={`/${item.archivo}`} type="video/mp4" />
                     </video>
                   ) : (
-                    <div className="tarjeta-imagen" style={{ backgroundImage: `url(/${item.archivo})` }}></div>
+                    <div 
+                      className="tarjeta-imagen" 
+                      style={{ backgroundImage: `url(/${item.archivo})`, cursor: 'zoom-in' }}
+                      onClick={() => setMediaAmpliada(item)} 
+                    ></div>
                   )}
                   
                   <div className="tarjeta-texto">
@@ -79,6 +91,43 @@ export default function Viaje() {
         })}
         <div className="espaciador-final"></div>
       </div>
+
+      {/* --- MODAL DE PANTALLA COMPLETA --- */}
+      {mediaAmpliada && (
+        <div 
+          onClick={() => setMediaAmpliada(null)} 
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            backgroundColor: 'rgba(0, 0, 0, 0.95)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 9999,
+            cursor: 'zoom-out',
+            padding: '20px'
+          }}
+        >
+          {mediaAmpliada.tipo === 'video' ? (
+            <video 
+              src={`/${mediaAmpliada.archivo}`} 
+              controls 
+              autoPlay 
+              style={{ maxWidth: '100%', maxHeight: '100%', borderRadius: '10px' }} 
+              onClick={(e) => e.stopPropagation()}
+            />
+          ) : (
+            <img 
+              src={`/${mediaAmpliada.archivo}`} 
+              alt="Sorpresa Ampliada" 
+              style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', borderRadius: '10px' }}
+            />
+          )}
+        </div>
+      )}
     </div>
   );
 }
