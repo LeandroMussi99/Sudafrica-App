@@ -6,7 +6,7 @@ export default function Viaje() {
   const [diaActualViaje, setDiaActualViaje] = useState(0);
   const [mediaAmpliada, setMediaAmpliada] = useState(null); 
   
-  const fechaInicioViaje = new Date("2026-10-22T00:00:00").getTime();
+  const fechaInicioViaje = new Date("2026-10-21T00:00:00").getTime();
 
   useEffect(() => {
     const calcularDia = () => {
@@ -25,7 +25,7 @@ export default function Viaje() {
 
   const diasViaje = [
     { dia: 1, autor: "Mia", mensaje: "¡Espero que hayan disfrutado el viaje de ida! No tengo dudas que Su luz ya está resplandeciendo. Las amo! Disfruten esta travesía con el señor y cuéntenos con lujo de detalles cada testimonio✨", archivo: "sorpresas/foto1.webp", tipo: "imagen" },
-    { dia: 2, autor: "Lean", mensaje: "Espero que no esten viendo este video, por ahi necesitan actualizarlo conectense a internet para que se cargue el verdadero.", archivo: "sorpresas/video2.mp4", tipo: "video" },
+    { dia: 2, autor: "Magui",archivo: "sorpresas/video2.mp4", tipo: "video" },
     { dia: 3, autor: "Lean", mensaje: "Otra vez yo probablemente no se cargo la sorpresa conectense a internet y recargueen. ¡Fuerza hoy!", archivo: "sorpresas/foto3.webp", tipo: "imagen" },
     { dia: 4, autor: "Lean", mensaje: "Hola mi nombre es Lean me conoceran como en videos de hoy no se cargo la sorpresa", archivo: "sorpresas/video4.mp4", tipo: "video" },
     { dia: 5, autor: "Lean", mensaje: "Dia 5 no hay señales de la sorpresa soy otra vez yo, estas imagenes nunca debieron salir a la luz", archivo: "sorpresas/foto5.webp", tipo: "imagen" },
@@ -76,8 +76,8 @@ export default function Viaje() {
                   )}
                   
                   <div className="tarjeta-texto">
-                    <h3>{item.autor} dice:</h3>
-                    <p>"{item.mensaje}"</p>
+                    <h3>{item.autor}{item.mensaje ? " dice:" : ""}</h3>
+                     {item.mensaje && <p>"{item.mensaje}"</p>}
                   </div>
                 </div>
               ) : (
