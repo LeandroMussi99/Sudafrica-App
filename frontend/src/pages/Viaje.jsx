@@ -26,7 +26,7 @@ export default function Viaje() {
   const diasViaje = [
     { dia: 1, autor: "Mia", mensaje: "¡Espero que hayan disfrutado el viaje de ida! No tengo dudas que Su luz ya está resplandeciendo. Las amo! Disfruten esta travesía con el señor y cuéntenos con lujo de detalles cada testimonio✨", archivo: "sorpresas/foto1.webp", tipo: "imagen" },
     { dia: 2, autor: "Magui",archivo: "sorpresas/video2.mp4", tipo: "video" },
-    { dia: 3, autor: "Lean", mensaje: "Otra vez yo probablemente no se cargo la sorpresa conectense a internet y recargueen. ¡Fuerza hoy!", archivo: "sorpresas/foto3.webp", tipo: "imagen" },
+    { dia: 3, autor: "Ro", mensaje: "Saben que no quería grabar asi que mas les vale apreciarlo mas", archivo: "sorpresas/video3.mp4", tipo: "video" },
     { dia: 4, autor: "Lean", mensaje: "Hola mi nombre es Lean me conoceran como en videos de hoy no se cargo la sorpresa", archivo: "sorpresas/video4.mp4", tipo: "video" },
     { dia: 5, autor: "Lean", mensaje: "Dia 5 no hay señales de la sorpresa soy otra vez yo, estas imagenes nunca debieron salir a la luz", archivo: "sorpresas/foto5.webp", tipo: "imagen" },
     { dia: 6, autor: "Lean", mensaje: "Creo que en el video le erre al dia nose ya me canse de grabar espero que esten cargadas las sorpresas reales adiooos.", archivo: "sorpresas/video6.mp4", tipo: "video" },
