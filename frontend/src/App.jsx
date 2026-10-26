@@ -4,11 +4,14 @@ import Inicio from './pages/Inicio';
 import Viaje from './pages/Viaje';
 import Testimonios from './pages/Testimonios';
 import Historial from './pages/Historial';
-import './App.css'; 
+import TestimoniosPublicos from './pages/TestimoniosPublicos';
+import './App.css';
 
 function BottomNav() {
   const location = useLocation();
-  
+
+  if (location.pathname === '/cami' || location.pathname === '/mili') return null;
+
   return (
     <nav className="bottom-nav">
       <Link to="/" className={location.pathname === '/' ? 'nav-item active' : 'nav-item'}>
@@ -35,6 +38,8 @@ function App() {
         <Route path="/testimonios" element={<Testimonios />} />
         <Route path="/viaje" element={<Viaje />} />
         <Route path="/historial" element={<Historial />} />
+        <Route path="/cami" element={<TestimoniosPublicos nombreAutora="Cami" />} />
+        <Route path="/mili" element={<TestimoniosPublicos nombreAutora="Mili" />} />
       </Routes>
       <BottomNav />
     </div>
