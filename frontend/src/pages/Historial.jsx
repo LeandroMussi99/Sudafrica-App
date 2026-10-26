@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { ArrowLeft, Search, Filter, Calendar, User, Tag, ChevronDown } from 'lucide-react';
+import { ArrowLeft, Search, Filter, Calendar, User, Tag, ChevronDown, ArrowUpDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import './Testimonios.css'; 
+import './Testimonios.css';
 
 const SelectorCustom = ({ valor, opciones, alCambiar, icono: Icono }) => {
   const [abierto, setAbierto] = useState(false);
@@ -16,8 +16,8 @@ const SelectorCustom = ({ valor, opciones, alCambiar, icono: Icono }) => {
       {abierto && (
         <div className="dropdown-pro-lista">
           {opciones.map(op => (
-            <div 
-              key={op.valor} 
+            <div
+              key={op.valor}
               className={`dropdown-pro-item ${valor === op.valor ? 'seleccionado' : ''}`}
               onClick={() => { alCambiar(op.valor); setAbierto(false); }}
             >
@@ -35,21 +35,20 @@ export default function Historial() {
   const [filtroAutora, setFiltroAutora] = useState('Todas');
   const [filtroCategoria, setFiltroCategoria] = useState('Todas');
   const [filtroFecha, setFiltroFecha] = useState('Todas');
+  const [orden, setOrden] = useState('recientes');
   const [cargando, setCargando] = useState(true);
 
   useEffect(() => {
-    // 1. Apenas entran, buscamos si hay un backup viejo guardado en el celu
     const backupLocal = JSON.parse(localStorage.getItem('historialBackup')) || [];
     if (backupLocal.length > 0) {
       setTestimonios(backupLocal);
       setCargando(false);
     }
 
-    // 2. Intentamos conectarnos a tu base de datos para traer lo más nuevo
     axios.get('https://backend-sudafrica.onrender.com/api/testimonios')
       .then(response => {
         const datosNuevos = response.data.reverse();
-        setTestimonios(datosNuevos); 
+        setTestimonios(datosNuevos);
         localStorage.setItem('historialBackup', JSON.stringify(datosNuevos));
         setCargando(false);
       })
@@ -59,7 +58,6 @@ export default function Historial() {
       });
   }, []);
 
-  // Extraemos las fechas únicas que existen en la base de datos
   const fechasUnicas = ['Todas', ...new Set(testimonios.map(t => t.fechaLocal.split(',')[0].trim()))];
   const opcionesFecha = fechasUnicas.map(f => ({ valor: f, etiqueta: f === 'Todas' ? 'Fecha: Todas' : f }));
 
@@ -69,6 +67,10 @@ export default function Historial() {
     const pasaFecha = filtroFecha === 'Todas' || t.fechaLocal.includes(filtroFecha);
     return pasaAutora && pasaCategoria && pasaFecha;
   });
+
+  const testimoniosOrdenados = orden === 'recientes'
+    ? testimoniosFiltrados
+    : [...testimoniosFiltrados].reverse();
 
   return (
     <div className="testimonios-container">
@@ -81,44 +83,68 @@ export default function Historial() {
 
       <div className="panel-filtros">
         <div className="titulo-filtros"><Filter size={16} /> Filtros de búsqueda</div>
-        
+
         <div className="fila-selectores-modernos">
-          <SelectorCustom 
+          <SelectorCustom
             icono={User} valor={filtroAutora} alCambiar={setFiltroAutora}
             opciones={[
               { valor: 'Todas', etiqueta: 'Autor: Todas' },
               { valor: 'Cami', etiqueta: 'Cami' },
               { valor: 'Mili', etiqueta: 'Mili' }
-            ]} 
+            ]}
           />
-          <SelectorCustom 
+          <SelectorCustom
             icono={Tag} valor={filtroCategoria} alCambiar={setFiltroCategoria}
             opciones={[
               { valor: 'Todas', etiqueta: 'Cat: Todas' },
               { valor: 'Testimonio', etiqueta: 'Testimonios' },
               { valor: 'Oración', etiqueta: 'Oraciones' },
               { valor: 'Historia', etiqueta: 'Historias' }
-            ]} 
+            ]}
           />
         </div>
 
-        <SelectorCustom 
+        <SelectorCustom
           icono={Calendar} valor={filtroFecha} alCambiar={setFiltroFecha}
-          opciones={opcionesFecha} 
+          opciones={opcionesFecha}
         />
+      </div>
+
+      {/* BOTÓN DE ORDENAMIENTO */}
+      <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '20px' }}>
+        <button
+          style={{
+            backgroundColor: '#ffffff',
+            color: '#c06c33',
+            border: '1px solid #f0d8c8',
+            borderRadius: '20px',
+            padding: '8px 16px',
+            fontSize: '14px',
+            fontWeight: '600',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            boxShadow: '0 2px 10px rgba(0,0,0,0.03)'
+          }}
+          onClick={() => setOrden(orden === 'recientes' ? 'antiguos' : 'recientes')}
+        >
+          <ArrowUpDown size={16} />
+          {orden === 'recientes' ? 'Orden: Más recientes' : 'Orden: Más antiguos'}
+        </button>
       </div>
 
       <div className="lista-locales">
         {cargando ? (
           <p className="lista-vacia">Buscando en la nube...</p>
-        ) : testimoniosFiltrados.length === 0 ? (
+        ) : testimoniosOrdenados.length === 0 ? (
           <div className="lista-vacia">
             <Search size={40} color="#ccc" style={{ marginBottom: '10px' }} />
             <p>No hay testimonios con estos filtros.</p>
           </div>
         ) : (
-          testimoniosFiltrados.map((item) => (
-            <div key={item.id} className="nota-local" style={{ borderColor: '#6b705c' }}>
+          testimoniosOrdenados.map((item) => (
+            <div key={item.id} className={`nota-local borde-${item.autora.toLowerCase()}`}>
               <div className="nota-header">
                 <span className={`badge ${item.categoria.toLowerCase()}`}>{item.categoria}</span>
                 <span className="nota-autora">Escrito por {item.autora}</span>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { CloudUpload, Save, BookOpen, User, Tag, ChevronDown, Pencil, Trash2, AlertTriangle } from 'lucide-react';
+import { CloudUpload, Save, BookOpen, User, Tag, ChevronDown, Pencil, Trash2, AlertTriangle, ArrowUpDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import './Testimonios.css';
 
@@ -38,6 +38,7 @@ export default function Testimonios() {
   const [estadoSync, setEstadoSync] = useState('');
   const [testimonioABorrar, setTestimonioABorrar] = useState(null);
   const [isSyncing, setIsSyncing] = useState(false);
+  const [orden, setOrden] = useState('recientes');
 
   useEffect(() => {
     const notasGuardadas = JSON.parse(localStorage.getItem('testimoniosLocales')) || [];
@@ -148,15 +149,25 @@ export default function Testimonios() {
         <div className="sincronizacion-header">
           <h3>Por subir a la nube ({guardadosLocal.length})</h3>
           
-          {/* ACÁ ACTUALIZAMOS EL BOTÓN */}
-          <button 
-            className={`btn-sync ${guardadosLocal.length === 0 || isSyncing ? 'disabled' : ''}`}
-            onClick={sincronizarNube}
-            disabled={guardadosLocal.length === 0 || isSyncing}
-          >
-            <CloudUpload size={18} /> 
-            {isSyncing ? 'Enviando...' : 'Sincronizar'}
-          </button>
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <button 
+              className="btn-sync" 
+              style={{ backgroundColor: '#f0f0f0', color: '#333' }}
+              onClick={() => setOrden(orden === 'recientes' ? 'antiguos' : 'recientes')}
+            >
+              <ArrowUpDown size={18} />
+              {orden === 'recientes' ? 'Más recientes' : 'Más antiguos'}
+            </button>
+
+            <button 
+              className={`btn-sync ${guardadosLocal.length === 0 || isSyncing ? 'disabled' : ''}`}
+              onClick={sincronizarNube}
+              disabled={guardadosLocal.length === 0 || isSyncing}
+            >
+              <CloudUpload size={18} /> 
+              {isSyncing ? 'Enviando...' : 'Sincronizar'}
+            </button>
+          </div>
         </div>
 
         {estadoSync && (
@@ -166,8 +177,8 @@ export default function Testimonios() {
         )}
 
         <div className="lista-locales">
-          {guardadosLocal.map((item, index) => (
-            <div key={index} className="nota-local">
+          {(orden === 'recientes' ? guardadosLocal : [...guardadosLocal].reverse()).map((item, index) => (
+            <div key={index} className={`nota-local borde-${item.autora.toLowerCase()}`}>
               <div className="nota-header">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <span className={`badge ${item.categoria.toLowerCase()}`}>{item.categoria}</span>

@@ -484,3 +484,11 @@ textarea:focus {
   font-weight: 600;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); 
 }
+
+.nota-local.borde-cami {
+  border-left: 5px solid #87CEEB !important;
+}
+
+.nota-local.borde-mili {
+  border-left: 5px solid #C8A2C8 !important;
+}
