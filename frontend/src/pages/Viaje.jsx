@@ -31,8 +31,8 @@ export default function Viaje() {
     { dia: 5, autor: "Santi, Agus y Fabi", archivo: "sorpresas/video5.mp4", tipo: "video" },
     { dia: 6, autor: "Lean y Eze", mensaje: "Porque el Espíritu de Dios no nos hace cobardes. Al contrario, nos da poder para amar a los demás, y nos fortalece para que podamos vivir una buena vida cristiana. Timoteo 1:7", archivo: "sorpresas/video6.mp4", tipo: "video" },
     { dia: 7, autor: "Diame", archivo: "sorpresas/video7.mp4", tipo: "video" },
-    { dia: 8, autor: "Jorge y Vivi", archivo: "sorpresas/video8.mp4", tipo: "video" },
-    { dia: 9, autor: "Dami y Gabi", archivo: "sorpresas/video9.mp4", tipo: "video" },
+    { dia: 8, autor: "Los Papis", archivo: "sorpresas/video8.mp4", tipo: "video" },
+    { dia: 9, autor: "Nico y Lu", archivo: "sorpresas/video9.mp4", tipo: "video" },
     { dia: 10, autor: "Los Bondiola", mensaje: "Y algo que le guste a las dos Jesus.", archivo: "sorpresas/foto10.webp", tipo: "imagen" }
   ];
 
