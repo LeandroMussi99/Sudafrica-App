@@ -6,7 +6,7 @@ export default function Viaje() {
   const [diaActualViaje, setDiaActualViaje] = useState(0);
   const [mediaAmpliada, setMediaAmpliada] = useState(null);
 
-  const fechaInicioViaje = new Date("2026-10-22T00:00:00").getTime();
+  const fechaInicioViaje = new Date("2026-10-22T01:00:00").getTime();
 
   useEffect(() => {
     const calcularDia = () => {
