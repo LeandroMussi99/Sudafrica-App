@@ -6,7 +6,7 @@ export default function Viaje() {
   const [diaActualViaje, setDiaActualViaje] = useState(0);
   const [mediaAmpliada, setMediaAmpliada] = useState(null);
 
-  const fechaInicioViaje = new Date("2026-10-22T01:00:00").getTime();
+  const fechaInicioViaje = new Date("2026-10-22T00:00:00").getTime();
 
   useEffect(() => {
     const calcularDia = () => {
@@ -30,9 +30,9 @@ export default function Viaje() {
     { dia: 4, autor: "Sofi y Emma", archivo: "sorpresas/video4.mp4", tipo: "video" },
     { dia: 5, autor: "Santi, Agus y Fabi", archivo: "sorpresas/video5.mp4", tipo: "video" },
     { dia: 6, autor: "Lean y Eze", mensaje: "Porque el Espíritu de Dios no nos hace cobardes. Al contrario, nos da poder para amar a los demás, y nos fortalece para que podamos vivir una buena vida cristiana. Timoteo 1:7", archivo: "sorpresas/video6.mp4", tipo: "video" },
-    { dia: 7, autor: "Diame", mensaje: "Adicto a la tiiiiiiintaaaaaaaa.", archivo: "sorpresas/foto7.webp", tipo: "imagen" },
-    { dia: 8, autor: "Jorge y Vivi", mensaje: "Bueno estas ultimas son fotos de cosas que le gustan a ustedes, para Mili foto de un bebe tierno, la que sigue es para Cami", archivo: "sorpresas/foto8.webp", tipo: "imagen" },
-    { dia: 9, autor: "Dami y Gabi", mensaje: "Esta es para Cami, BTS en Argentinaaaaaaaaaa.", archivo: "sorpresas/foto9.webp", tipo: "imagen" },
+    { dia: 7, autor: "Diame", archivo: "sorpresas/video7.mp4", tipo: "video" },
+    { dia: 8, autor: "Jorge y Vivi", archivo: "sorpresas/video8.mp4", tipo: "video" },
+    { dia: 9, autor: "Dami y Gabi", archivo: "sorpresas/video9.mp4", tipo: "video" },
     { dia: 10, autor: "Los Bondiola", mensaje: "Y algo que le guste a las dos Jesus.", archivo: "sorpresas/foto10.webp", tipo: "imagen" }
   ];
 
