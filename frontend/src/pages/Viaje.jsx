@@ -6,7 +6,7 @@ export default function Viaje() {
   const [diaActualViaje, setDiaActualViaje] = useState(0);
   const [mediaAmpliada, setMediaAmpliada] = useState(null);
 
-  const fechaInicioViaje = new Date("2026-10-22T00:00:00").getTime();
+  const fechaInicioViaje = new Date("2026-10-22T01:00:00").getTime();
 
   useEffect(() => {
     const calcularDia = () => {
@@ -33,7 +33,7 @@ export default function Viaje() {
     { dia: 7, autor: "Diame", archivo: "sorpresas/video7.mp4", tipo: "video" },
     { dia: 8, autor: "Los Papis", archivo: "sorpresas/video8.mp4", tipo: "video" },
     { dia: 9, autor: "Nico y Lu", archivo: "sorpresas/video9.mp4", tipo: "video" },
-    { dia: 10, autor: "Los Bondiola", mensaje: "Y algo que le guste a las dos Jesus.", archivo: "sorpresas/foto10.webp", tipo: "imagen" }
+    { dia: 10, autor: "Los Bondiola", mensaje: "Llegó el último día de esta mision increíble en Sudáfrica. Ver todo lo que vivieron, cómo llevaron el amor de Jesús a cada persona y cómo entregaron su corazón nos deja sin palabras. Los Bondiola seguimos cada paso desde casa, sosteniéndolas en oración y orgullosos de ver cómo llevaron su luz hasta allá. Gracias por inspirarnos tanto y por dejarnos ser parte a la distancia. Las queremos mucho.", archivo: "sorpresas/video10.mp4", tipo: "video" }
   ];
 
   return (
